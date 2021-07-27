@@ -1,0 +1,21 @@
+﻿@model Application.ViewModels.ApartmentListViewModel;
+
+    <a class="btn btn-primary" asp-controller="Apartment" asp-action="AddOrEdit">Add Apartment</a>
+
+<h1>All Apartments</h1>
+<hr />
+@{ foreach (var apartment in Model.Apartments)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@apartment.Photos" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">A cousy place to rest for the night for only <span class="d-inline p-2 bg-white text-success">$@apartment.PricePerNight</span></p>
+                <p class="card-text">With room for @apartment.Bads person/s, located in @apartment.City!</p>
+                <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit" asp-route-id="@apartment.Id">Edit</a>
+                @*On the one below to be added asp-contorlers and routes for the function RentIt*@
+                <a href="#" class="btn btn-primary">Rent It!</a>
+            </div>
+        </div>
+    }
+}
