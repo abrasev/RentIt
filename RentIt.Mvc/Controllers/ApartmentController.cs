@@ -40,6 +40,7 @@ namespace RentIt.Mvc.Controllers
             {
                 _apartmentService.EditApartment(apartmentViewModel);
             }
+
             return RedirectToAction("Index");
         }
     }
