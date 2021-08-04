@@ -3,20 +3,21 @@
 <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit">Add Car</a>
 <h1 class="card-title">Available Cars: </h1>
 <hr />
-
-@{foreach (var car in Model.Cars)
-    {
-        <div class="card" style="width: 18rem;">
-            <img src="@car.Photos" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">The new model of @car.Maker @car.Model.</p>
-                <p class="card-text">With the impresive <span class="text-primary"> @car.Color</span>, produced in @car.YearProduced, this car is ideal for your adventure!</p>
-                <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit" asp-route-id="@car.Id">Edit</a>                
-                @*On the one below to be added asp-contorlers and routes for the function RentIt*@ 
-                <a href="#" class="btn btn-primary">Rent It!</a>
+<div class="row container">
+    @{foreach (var car in Model.Cars)
+        {
+            <div class="card  m-3" style="width: 18rem;">
+                <img src="@car.Photos" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">The new model of @car.Maker @car.Model.</p>
+                    <p class="card-text">With the impresive <span class="text-primary"> @car.Color</span>, produced in @car.YearProduced, this car is ideal for your adventure!</p>
+                    <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit" asp-route-id="@car.Id">Edit</a>
+                    @*On the one below to be added asp-contorlers and routes for the function RentIt*@
+                    <a href="#" class="btn btn-primary">Rent It!</a>
+                </div>
             </div>
-        </div>
-    }
+        }
 
-}
+    }
+</div>
