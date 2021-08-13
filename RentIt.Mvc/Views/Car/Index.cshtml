@@ -9,7 +9,7 @@
             <div class="card  m-3" style="width: 18rem;">
                 <img src="@car.Photos" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">@car.Maker @car.Model</h5>
                     <p class="card-text">The new model of @car.Maker @car.Model.</p>
                     <p class="card-text">With the impresive <span class="text-primary"> @car.Color</span>, produced in @car.YearProduced, this car is ideal for your adventure!</p>
                     <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit" asp-route-id="@car.Id">Edit</a>

@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,5 +50,23 @@ namespace RentIt.Mvc.Controllers
             _carService.EditCar(carViewModel);
             return RedirectToAction("Index");
         }
-    }
+        [HttpGet("Car/getAllCars")]
+        public IActionResult GetAll()
+        {
+            var carsListModel = _carService.GetCars();
+            if (carsListModel != null)
+            {
+                string json = JsonConvert.SerializeObject(
+                       carsListModel,
+                       Formatting.None,
+                       new JsonSerializerSettings()
+                       {
+                           ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                           NullValueHandling = NullValueHandling.Ignore
+                       });
+                return Ok(json);
+            }
+            return NotFound();
+        }
+    }    
 }

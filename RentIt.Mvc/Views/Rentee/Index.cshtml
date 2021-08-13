@@ -1,0 +1,34 @@
+﻿@model Application.ViewModels.RenteeListViewModel;
+
+<a class="btn btn-primary" asp-controller="Rentee" asp-action="AddOrEdit">Add Rentee</a>
+<br />
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+
+        @foreach (var rentee in Model.Rentees)
+        {
+        <tr>
+            <th scope="row">@i</th>
+            <td>@rentee.FirstName</td>
+            <td>@rentee.LastName</td>
+            <td>@rentee.Email</td>
+            <td>@rentee.PhoneNumber</td>
+            <td><a class="btn btn-primary" asp-controller="Rentee" asp-action="AddOrEdit" asp-route-id="@rentee.Id">Edit Rentee</a></td>
+        </tr>
+            i++;
+        }
+
+
+    </tbody>
+</table>

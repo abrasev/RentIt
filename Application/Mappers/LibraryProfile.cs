@@ -15,6 +15,7 @@ namespace Application.Mappers
         {
             CreateMap<Car, CarViewModel>().ReverseMap();
             CreateMap<Apartment, ApartmentViewModel>().ReverseMap();
+            CreateMap<Rentee, RenteeViewModel>().ReverseMap();
         }
     }
 }

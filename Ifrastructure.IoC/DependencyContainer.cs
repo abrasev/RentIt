@@ -18,10 +18,12 @@ namespace Infrastructure.IoC
             //Application layer
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IApartmentService, ApartmentService>();
+            services.AddScoped<IRenteeService, RenteeService>();
 
             //Domain.Interfaces > Infrastructures.Data.Repositories
             services.AddScoped<ICarRepository, CarRepository>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IRenteeRepository, RenteeRepository>();
         }
     }
 }
