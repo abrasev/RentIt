@@ -42,5 +42,11 @@ namespace RentIt.Mvc.Controllers
             }
             return RedirectToAction("Index");
         }
+        public IActionResult RentCar(Guid id)
+        {
+            RentCarViewModel model = _renteeService.GetRenteeWithRentedCars(id);
+
+            return View(model);
+        }
     }
 }

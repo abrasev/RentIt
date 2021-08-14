@@ -34,6 +34,22 @@ namespace Application.Services
             _carRepository.Update(car);
         }
 
+        public CarListViewModel FullTextSearch(string searchTerm)
+        {
+            var carsVm = new List<CarViewModel>();
+
+            var cars = string.IsNullOrEmpty(searchTerm) ? _carRepository.GetAll() : _carRepository.FullTextSearch(searchTerm);
+
+            if (cars != null && cars.Any())
+            {
+                carsVm = _mapper.Map<List<CarViewModel>>(cars);
+            }
+            return new CarListViewModel
+            {
+                Cars = carsVm
+            };
+        }
+
         public CarViewModel GetCarById(Guid id)
         {
             var car = _carRepository.GetById(id);

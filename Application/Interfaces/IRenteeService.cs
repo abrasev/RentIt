@@ -13,5 +13,7 @@ namespace Application.Interfaces
         RenteeViewModel GetRenteeById(Guid id);
         RenteeViewModel AddRentee(RenteeViewModel renteeRequest);
         void EditRentee(RenteeViewModel renteeRequest);
+        RentCarViewModel GetRenteeWithRentedCars(Guid id);
+        RentApartmentViewModel GetRenteeWithRentedApartments(Guid id);
     }
 }

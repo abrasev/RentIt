@@ -23,5 +23,10 @@ namespace Application.ViewModels
         [Display(Name = "Price Per Day")]
         public int PricePerDay { get; set; }
         public string Photos { get; set; }
+        public string FullName { get
+            {
+                return $"{Maker} {Model}";
+            } 
+        }
     }
 }

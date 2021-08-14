@@ -50,6 +50,15 @@ namespace RentIt.Mvc.Controllers
             _carService.EditCar(carViewModel);
             return RedirectToAction("Index");
         }
+        public IActionResult SearchByFullName(string searchTerm)
+        {
+            var model = _carService.FullTextSearch(searchTerm);
+
+            return Json(model.Cars);
+        }
+
+
+
         [HttpGet("Car/getAllCars")]
         public IActionResult GetAll()
         {

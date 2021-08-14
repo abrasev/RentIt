@@ -10,5 +10,7 @@ namespace Domain.Interfaces
 {
     public interface IRenteeRepository: IBaseRepository<Rentee>
     {
+        Rentee GetRenteeWithRentedCars(Guid id);
+        Rentee GetRenteeWithRentedApartments(Guid id);
     }
 }

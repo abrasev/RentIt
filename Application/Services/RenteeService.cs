@@ -46,7 +46,35 @@ namespace Application.Services
         public RenteeViewModel GetRenteeById(Guid id)
         {
             var rentee = _renteeRepository.GetById(id);
-            return _mapper.Map<RenteeViewModel>(rentee);            
+            return _mapper.Map<RenteeViewModel>(rentee);
         }
+
+        public RentApartmentViewModel GetRenteeWithRentedApartments(Guid id)
+        {
+            var rentee = _renteeRepository.GetRenteeWithRentedApartments(id);
+
+            var renteeViewModel = _mapper.Map<RenteeViewModel>(rentee);
+            var apartmenVm = _mapper.Map<IEnumerable<ApartmentViewModel>>(rentee);
+
+            return new RentApartmentViewModel
+            {
+                Rentee = renteeViewModel,
+                Apartments = apartmenVm
+            };
+        }
+
+        public RentCarViewModel GetRenteeWithRentedCars(Guid id)
+        {
+            var rentee = _renteeRepository.GetRenteeWithRentedCars(id);
+
+            var renteeViewModel = _mapper.Map<RenteeViewModel>(rentee);
+            var carsVm = _mapper.Map<IEnumerable<CarViewModel>>(rentee.Cars);
+
+            return new RentCarViewModel
+            {
+                Cars = carsVm,
+                Rentee = renteeViewModel
+            };
+        }        
     }
 }

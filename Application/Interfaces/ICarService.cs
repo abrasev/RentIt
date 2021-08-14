@@ -13,6 +13,7 @@ namespace Application.Interfaces
         CarViewModel GetCarById(Guid id);
         CarViewModel AddCar(CarViewModel carRequest);
         void EditCar(CarViewModel carRequest);
+        CarListViewModel FullTextSearch(string searchTerm);
 
     }
 }

@@ -13,8 +13,7 @@
                     <p class="card-text">The new model of @car.Maker @car.Model.</p>
                     <p class="card-text">With the impresive <span class="text-primary"> @car.Color</span>, produced in @car.YearProduced, this car is ideal for your adventure!</p>
                     <a class="btn btn-primary" asp-controller="Car" asp-action="AddOrEdit" asp-route-id="@car.Id">Edit</a>
-                    @*On the one below to be added asp-contorlers and routes for the function RentIt*@
-                    <a href="#" class="btn btn-primary">Rent It!</a>
+                    <a class="btn btn-primary" asp-controller="Car" asp-action="Rent" asp-route-id="@car.Id">Rent it!</a>
                 </div>
             </div>
         }

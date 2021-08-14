@@ -11,6 +11,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +25,10 @@
             <td>@rentee.LastName</td>
             <td>@rentee.Email</td>
             <td>@rentee.PhoneNumber</td>
-            <td><a class="btn btn-primary" asp-controller="Rentee" asp-action="AddOrEdit" asp-route-id="@rentee.Id">Edit Rentee</a></td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Rentee" asp-action="AddOrEdit" asp-route-id="@rentee.Id">Edit Rentee</a>
+                <a class="btn btn-primary" asp-controller="Rentee" asp-action="RentCar" asp-route-id="@rentee.Id">Rent</a>
+            </td>
         </tr>
             i++;
         }
