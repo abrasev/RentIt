@@ -48,5 +48,21 @@ namespace Application.Services
             var apartment = _apartmentRepository.GetById(id);
             return _mapper.Map<ApartmentViewModel>(apartment);
         }
+
+        public ApartmentListViewModel SearchByFullname(string searchTerm)
+        {
+            var apartmentsVm = new List<ApartmentViewModel>();
+
+            var apartments = string.IsNullOrEmpty(searchTerm) ? _apartmentRepository.GetAll() : _apartmentRepository.FullTextSearch(searchTerm);
+
+            if (apartments != null && apartments.Any())
+            {
+                apartmentsVm = _mapper.Map<List<ApartmentViewModel>>(apartments);
+            }
+            return new ApartmentListViewModel
+            {
+                Apartments = apartmentsVm
+            };
+        }
     }
 }

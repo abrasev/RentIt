@@ -1,9 +1,9 @@
 ﻿$(document).ready(function () {
-    $("#carsList").select2({
-        placeholder: "Select a car",
+    $("#apartmentList").select2({
+        placeholder: "Select apartment",
         allowClear: true,
         ajax: {
-            url: "/Car/SearchByFullName",
+            url: "/Apartment/SearchByFullName",
             contentType: "application/json; charset=utf-8",
             data: function (params) {
                 var query =
@@ -17,7 +17,7 @@
                     results: $.map(result, function (item) {
                         return {
                             id: item.id,
-                            text: item.fullName
+                            text: item.address
                         };
                     }),
                 };

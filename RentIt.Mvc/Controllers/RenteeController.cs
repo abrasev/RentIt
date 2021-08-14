@@ -48,5 +48,61 @@ namespace RentIt.Mvc.Controllers
 
             return View(model);
         }
+        [HttpPost]
+        public IActionResult RentCar(Guid carId, Guid renteeId)
+        {
+            _renteeService.RentCar(carId, renteeId);
+
+            var model = _renteeService.GetRenteeWithRentedCars(renteeId);
+
+            return View(model);
+        }
+        public IActionResult ReturnCar(Guid renteeId)
+        {
+            RentCarViewModel model = _renteeService.GetRenteeWithRentedCars(renteeId);
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult ReturnCar(Guid carId, Guid renteeId)
+        {
+            _renteeService.ReturnCar(carId, renteeId);
+
+            RentCarViewModel model = _renteeService.GetRenteeWithRentedCars(renteeId);
+
+            return View("RentCar", model);
+        }
+                
+        public IActionResult RentApartment(Guid id)
+        {
+            RentApartmentViewModel model = _renteeService.GetRenteeWithRentedApartments(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult RentApartment(Guid apartmentId, Guid renteeId)
+        {
+            _renteeService.RentApartment(apartmentId, renteeId);
+
+            var model = _renteeService.GetRenteeWithRentedApartments(renteeId);
+
+            return View(model);
+        }        
+        public IActionResult ReturnApartment(Guid renteeId)
+        {
+            RentApartmentViewModel model = _renteeService.GetRenteeWithRentedApartments(renteeId);
+
+            return View("RentApartment", model);
+        }
+        [HttpPost]
+        public IActionResult ReturnApartment(Guid apartmentId, Guid renteeId)
+        {
+            _renteeService.ReturnApartment(apartmentId, renteeId);
+
+            RentApartmentViewModel model = _renteeService.GetRenteeWithRentedApartments(renteeId);
+
+            return View("RentApartment", model);
+        }
+
     }
 }

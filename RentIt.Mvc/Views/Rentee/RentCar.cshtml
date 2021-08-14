@@ -42,7 +42,7 @@
                     <form asp-controller="Rentee" asp-action="ReturnCar" method="post" class="mt-3">
                         <input type="hidden" name="renteeId" asp-for="Rentee.Id" />
                         <input type="hidden" name="carId" asp-for="@car.Id" />
-                        <button type="submit" class="btn btn-info">Return</button>
+                        <button type="submit" class="btn btn-info"  id="carId">Return</button>
                     </form>
                 </td>
             </tr>

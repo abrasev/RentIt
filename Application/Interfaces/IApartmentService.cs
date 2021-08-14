@@ -13,5 +13,6 @@ namespace Application.Interfaces
         ApartmentViewModel GetApartmentById(Guid id);
         ApartmentViewModel AddApartment(ApartmentViewModel apartmentRequest);
         void EditApartment(ApartmentViewModel apartmentRequest);
+        ApartmentListViewModel SearchByFullname(string searchTerm);
     }
 }

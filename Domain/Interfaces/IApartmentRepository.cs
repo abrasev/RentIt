@@ -10,5 +10,6 @@ namespace Domain.Interfaces
 {
     public interface IApartmentRepository: IBaseRepository<Apartment>
     {
+        IEnumerable<Apartment> FullTextSearch(string searchTerm);
     }
 }

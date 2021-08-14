@@ -21,8 +21,8 @@ namespace Infrastructure.Data.Repositories
 
         public Rentee GetRenteeWithRentedCars(Guid id)
         {
-            return _dbContext.Rentees.Include(x => x.Cars).First(rentee => rentee.Id == id);
-            
+            var rentee =  _dbContext.Rentees.Include(x => x.Cars).First(car => car.Id == id);
+            return rentee;
         }
         public Rentee GetRenteeWithRentedApartments(Guid id)
         {

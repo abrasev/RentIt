@@ -43,5 +43,11 @@ namespace RentIt.Mvc.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult SearchByFullName(string searchTerm)
+        {
+            var model = _apartmentService.SearchByFullname(searchTerm);
+
+            return Json(model.Apartments);
+        }
     }
 }
