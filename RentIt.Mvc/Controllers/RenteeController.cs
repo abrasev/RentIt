@@ -15,6 +15,7 @@ namespace RentIt.Mvc.Controllers
         {
             _renteeService = renteeService;
         }
+        
         public IActionResult Index()
         {
             var model = _renteeService.GetAllRentees();

@@ -59,10 +59,11 @@ namespace RentIt.Mvc.Controllers
 
 
 
-        [HttpGet("Car/getAllCars")]
+        [HttpGet("Car/getCarsForSale")]
         public IActionResult GetAll()
         {
-            var carsListModel = _carService.GetCars();
+
+            var carsListModel = _carService.GetCars().Cars.Where(x => x.YearProduced <= DateTime.Now.Year - 5);
             if (carsListModel != null)
             {
                 string json = JsonConvert.SerializeObject(
