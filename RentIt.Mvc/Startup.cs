@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RentIt.Mvc.Data;
+using RentIt.Mvc.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,11 +66,15 @@ namespace RentIt.Mvc
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+                        
 
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //Error Loggin Middleware
+            app.UseMiddleware<ErrorLoggingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

@@ -53,7 +53,9 @@ namespace Application.Services
         {
             var apartmentsVm = new List<ApartmentViewModel>();
 
-            var apartments = string.IsNullOrEmpty(searchTerm) ? _apartmentRepository.GetAll() : _apartmentRepository.FullTextSearch(searchTerm);
+            var apartment = _apartmentRepository.GetAll().Where(a => a.Rented == false);
+
+            var apartments = string.IsNullOrEmpty(searchTerm) ? apartment : _apartmentRepository.FullTextSearch(searchTerm);
 
             if (apartments != null && apartments.Any())
             {

@@ -55,9 +55,13 @@ namespace Application.Services
         public RentCarViewModel GetRenteeWithRentedCars(Guid id)
         {
             var rentee = _renteeRepository.GetRenteeWithRentedCars(id);
+                        
 
             var renteeViewModel = _mapper.Map<RenteeViewModel>(rentee);
+            
             var carsVm = _mapper.Map<IEnumerable<CarViewModel>>(rentee.Cars);
+
+            
 
             return new RentCarViewModel
             {

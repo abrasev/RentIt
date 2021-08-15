@@ -15,7 +15,7 @@
                     <p class="card-text">A cousy place to rest for the night for only <span class="d-inline p-2 bg-white text-success">$@apartment.PricePerNight</span></p>
                     <p class="card-text">With room for @apartment.Bads person/s, located in @apartment.City!</p>
                     <a class="btn btn-primary" asp-controller="Apartment" asp-action="AddOrEdit" asp-route-id="@apartment.Id">Edit</a>
-                    <a class="btn btn-primary" asp-controller="Apartment" asp-action="Rent" asp-route-id="@apartment.Id">Rent it!</a>
+                    @*<a class="btn btn-primary" asp-controller="Apartment" asp-action="Rent" asp-route-id="@apartment.Id">Rent it!</a>*@
                 </div>
             </div>
         }

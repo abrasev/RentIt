@@ -18,6 +18,7 @@ namespace RentIt.Mvc.Controllers
         public IActionResult Index()
         {
             var model = _renteeService.GetAllRentees();
+
             return View(model);
         }
         public IActionResult AddOrEdit(Guid id)

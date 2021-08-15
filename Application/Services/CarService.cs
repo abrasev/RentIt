@@ -38,7 +38,10 @@ namespace Application.Services
         {
             var carsVm = new List<CarViewModel>();
 
-            var cars = string.IsNullOrEmpty(searchTerm) ? _carRepository.GetAll() : _carRepository.FullTextSearch(searchTerm);
+            var car = _carRepository.GetAll().Where(c => c.Rented == false);
+            
+
+            var cars = string.IsNullOrEmpty(searchTerm) ? car : _carRepository.FullTextSearch(searchTerm);
 
             if (cars != null && cars.Any())
             {

@@ -22,7 +22,7 @@ namespace Infrastructure.Data.Repositories
         public IEnumerable<Car> FullTextSearch(string searchTerm)
         {
             return _cars.AsEnumerable().Where(c => (c.Maker.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)
-            || c.Model.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) && c.Rented == false);
+            || c.Model.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) && c.Rented == true);
         }
     }
 }
